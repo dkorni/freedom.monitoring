@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj": {}
+    "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj": {}
   },
   "projects": {
-    "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj": {
+    "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj",
+        "projectUniqueName": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj",
         "projectName": "Freedom.ServerMonitor",
-        "projectPath": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj",
-        "packagesPath": "/Users/deniskornienko/.nuget/packages/",
-        "outputPath": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/obj/",
+        "projectPath": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj",
+        "packagesPath": "C:\\Users\\Denys\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/deniskornienko/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Denys\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -46,6 +46,18 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.6.90, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -62,6 +74,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -70,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/deniskornienko/.dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Denys\\.dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

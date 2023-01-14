@@ -1,3 +1,4 @@
+using System.Configuration;
 using Freedom.ServerMonitor.Contracts;
 using Freedom.ServerMonitor.DataBase;
 using Freedom.ServerMonitor.Repositories;
@@ -12,6 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataBaseContext>();
 builder.Services.AddScoped<IServerInfoRepository, DbRepository>();
+builder.Services.Decorate<IServerInfoRepository, CacheRepository>();
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+    options.InstanceName = "Freedom_ServerMonitoring";
+});
 
 var app = builder.Build();
 
