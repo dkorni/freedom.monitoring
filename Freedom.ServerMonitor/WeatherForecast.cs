@@ -1,3 +1,5 @@
+using System;
+
 namespace Freedom.ServerMonitor;
 
 public class WeatherForecast

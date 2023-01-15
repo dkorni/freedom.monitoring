@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Freedom.ServerMonitor.Models;
 
 namespace Freedom.ServerMonitor.Contracts;

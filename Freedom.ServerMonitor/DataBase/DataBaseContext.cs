@@ -1,6 +1,8 @@
+using System;
 using System.Data.Entity;
 using Freedom.ServerMonitor.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 
 namespace Freedom.ServerMonitor.DataBase;

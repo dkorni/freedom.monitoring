@@ -1,3 +1,4 @@
+using System;
 using Freedom.ServerMonitor.Enums;
 
 namespace Freedom.ServerMonitor.Models;
