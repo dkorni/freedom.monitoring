@@ -4164,19 +4164,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Denys\\.nuget\\packages\\": {}
+    "/Users/deniskornienko/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj",
+      "projectUniqueName": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj",
       "projectName": "Freedom.ServerMonitor",
-      "projectPath": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj",
-      "packagesPath": "C:\\Users\\Denys\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\obj\\",
+      "projectPath": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/Freedom.ServerMonitor.csproj",
+      "packagesPath": "/Users/deniskornienko/.nuget/packages/",
+      "outputPath": "/Users/deniskornienko/Desktop/Projects/Dotnet/Freedom.ServerMonitor/Freedom.ServerMonitor/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Denys\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/deniskornienko/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -4244,7 +4244,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/deniskornienko/.dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
