@@ -1,5 +1,6 @@
 using System;
 using System.Data.Entity;
+using Freedom.ServerMonitor.Contracts;
 using Freedom.ServerMonitor.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,13 +10,12 @@ namespace Freedom.ServerMonitor.DataBase;
 
 public class DataBaseContext : DbContext
 {
-    private readonly IConfiguration _configuration;
-    
+    private readonly IKeyVaultManager _keyVault;
     public Microsoft.EntityFrameworkCore.DbSet<ServerInfoModel> ServerInfos { get; set; }
 
-    public DataBaseContext(IConfiguration configuration)
+    public DataBaseContext(IKeyVaultManager keyVault)
     {
-        _configuration = configuration;
+        _keyVault = keyVault;
         Database.EnsureCreated();
     }
 
@@ -54,7 +54,7 @@ public class DataBaseContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(_configuration.GetConnectionString("FreedomServerMonitorDatabase"));
+        optionsBuilder.UseSqlServer(_keyVault.GetSecret("freedom-servermonitor-connection-string"));
     }
     
 }
