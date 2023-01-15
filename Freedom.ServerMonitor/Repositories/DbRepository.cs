@@ -33,7 +33,7 @@ public class DbRepository : IServerInfoRepository
 
         if (server is null)
         {
-            server = await _context.ServerInfos.FirstOrDefaultAsync(x => x.IpAddress == serverInfoModel.IpAddress && x.Port == serverInfoModel.Port);
+            server = await _context.ServerInfos.FirstOrDefaultAsync(x => x.IpAddress == serverInfoModel.IpAddress && x.Name == serverInfoModel.Name);
         }
 
         if (server is null)
