@@ -16,5 +16,5 @@ public class ServerInfoModel
 
     public int Port { get; set; }
     
-    public ServerStatus Status { get; set; }
+    //public ServerStatus Status { get; set; }
 }
