@@ -8,4 +8,6 @@ public interface IServerInfoRepository
     Task<ServerInfoModel[]> GetAll();
 
     Task Create(ServerInfoModel serverInfo);
+
+    Task Update(ServerInfoModel serverInfoModel);
 }

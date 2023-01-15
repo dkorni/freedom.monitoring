@@ -59,4 +59,10 @@ public class MemoryRepository : IServerInfoRepository
         _serverInfoModels[serverInfo.Id] = serverInfo;
         return  Task.CompletedTask;
     }
+
+    public Task Update(ServerInfoModel serverInfoModel)
+    {
+        _serverInfoModels[serverInfoModel.Id] = serverInfoModel;
+        return  Task.CompletedTask;
+    }
 }

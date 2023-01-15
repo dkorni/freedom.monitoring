@@ -26,4 +26,22 @@ public class DbRepository : IServerInfoRepository
         _context.Add(serverInfo);
         return _context.SaveChangesAsync();
     }
+
+    public async Task Update(ServerInfoModel serverInfoModel)
+    {
+        var server = await _context.ServerInfos.FirstOrDefaultAsync(x => x.Id == serverInfoModel.Id);
+
+        if (server is null)
+        {
+            server = await _context.ServerInfos.FirstOrDefaultAsync(x => x.IpAddress == serverInfoModel.IpAddress && x.Port == serverInfoModel.Port);
+        }
+
+        if (server is null)
+            throw new ArgumentNullException($"Can't find server with id {serverInfoModel.Id} or address {serverInfoModel.IpAddress}:{serverInfoModel.Port}");
+
+        server.Name = serverInfoModel.Name;
+        server.MaxPlayer = serverInfoModel.MaxPlayer;
+        server.PlayerCount = serverInfoModel.PlayerCount;
+        server.Status = serverInfoModel.Status;
+    }
 }

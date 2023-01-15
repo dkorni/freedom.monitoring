@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
+using AutoMapper;
 using Freedom.ServerMonitor.Contracts;
+using Freedom.ServerMonitor.DTO;
 using Freedom.ServerMonitor.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,21 +12,32 @@ namespace Freedom.ServerMonitor.Controllers;
 public class ServerInfoController : ControllerBase
 {
     private readonly IServerInfoRepository _serverInfoRepository;
+    private readonly IMapper _mapper;
 
-    public ServerInfoController(IServerInfoRepository serverInfoRepository)
+    public ServerInfoController(IServerInfoRepository serverInfoRepository, IMapper mapper)
     {
         _serverInfoRepository = serverInfoRepository;
+        _mapper = mapper;
     }
     
     [HttpGet]
-    public Task<ServerInfoModel[]> GetAll()
+    public async Task<ServerInfoDto[]> GetAll()
     {
-       return _serverInfoRepository.GetAll();
+       var models = await _serverInfoRepository.GetAll();
+       return models.Select(x => _mapper.Map<ServerInfoDto>(x)).ToArray();
     }
 
     [HttpPost]
-    public Task Create(ServerInfoModel serverInfo)
+    public Task Create(ServerInfoDto serverInfo)
     {
-       return _serverInfoRepository.Create(serverInfo);
+        var model = _mapper.Map<ServerInfoModel>(serverInfo);
+        return _serverInfoRepository.Create(model);
+    }
+
+    [HttpPut]
+    public Task Update(ServerInfoModel serverInfo)
+    {
+        var model = _mapper.Map<ServerInfoModel>(serverInfo);
+        return _serverInfoRepository.Update(model);
     }
 }

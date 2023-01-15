@@ -23,6 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataBaseContext>();
 builder.Services.AddScoped<IServerInfoRepository, DbRepository>();
 builder.AddKeyVault();
+builder.Services.AddMapper();
 builder.Services.AddSingleton<IKeyVaultManager, KeyVaultManager>();
 builder.Services.AddStackExchangeRedisCacheRepository();
 
