@@ -28,9 +28,18 @@ public class CacheRepository : IServerInfoRepository
         return servers;
     }
 
-    public Task Create(ServerInfoModel serverInfo)
+    public async Task Create(ServerInfoModel serverInfo)
     {
-        throw new NotImplementedException();
+        await _decorated.Create(serverInfo);
+        var servers = await _distributedCache.GetRecordAsync<List<ServerInfoModel>>("ServerInfos");
+        if (servers is null)
+        {
+            await PopulateFromDatabase();
+            return;
+        }
+        
+        servers.Add(serverInfo);
+        await _distributedCache.SetRecordAsync("ServerInfos", servers);
     }
 
     private async Task<ServerInfoModel[]> PopulateFromDatabase()

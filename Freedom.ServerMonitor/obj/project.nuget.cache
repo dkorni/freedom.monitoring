@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EKsLGso8VGeWwQPTdiEa35VYLgnFGjn0uUbZdjkC7gj4YODk03jcJv+WFoA5gfWtM3FlqEJcxw5hLpPtpXkMHw==",
+  "dgSpecHash": "ReQ3LuyoEVpdXdcxAP1Boor8PyPwLUccw7AU9xcE2sv8ejGRjjppkvnELT7amf1LrR0sAG65ShEVne3VZ0A3KA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\FreedomMonitoring\\Freedom.ServerMonitor\\Freedom.ServerMonitor.csproj",
   "expectedPackageFiles": [
@@ -85,11 +85,7 @@
     "C:\\Users\\Denys\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\Denys\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Denys\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Denys\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\Denys\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.12\\microsoft.netcore.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Denys\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.12\\microsoft.windowsdesktop.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Denys\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.12\\microsoft.aspnetcore.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\Denys\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.12\\microsoft.netcore.app.host.win-x64.6.0.12.nupkg.sha512"
+    "C:\\Users\\Denys\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

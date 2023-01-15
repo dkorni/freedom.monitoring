@@ -12,7 +12,7 @@ public static class DistributedCacheExtensions
         TimeSpan? unusedExpireTime = null)
     {
         var options = new DistributedCacheEntryOptions();
-        options.AbsoluteExpirationRelativeToNow = absoluteExpireTime ?? TimeSpan.FromSeconds(60);
+        options.AbsoluteExpirationRelativeToNow = absoluteExpireTime ?? TimeSpan.FromMinutes(15);
         options.SlidingExpiration = unusedExpireTime;
         var jsonData = JsonSerializer.Serialize(data);
         await cache.SetStringAsync(recordId, jsonData, options);

@@ -1,3 +1,5 @@
+using Freedom.ServerMonitor.Enums;
+
 namespace Freedom.ServerMonitor.Models;
 
 public class ServerInfoModel
@@ -13,4 +15,6 @@ public class ServerInfoModel
     public string IpAddress { get; set; }
 
     public int Port { get; set; }
+    
+    public ServerStatus Status { get; set; }
 }
