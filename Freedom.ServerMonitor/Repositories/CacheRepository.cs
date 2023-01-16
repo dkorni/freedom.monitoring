@@ -44,6 +44,22 @@ public class CacheRepository : IServerInfoRepository
         await _distributedCache.SetRecordAsync("ServerInfos", servers);
     }
 
+    public async Task Update(ServerInfoModel serverInfoModel)
+    {
+        await _decorated.Update(serverInfoModel);
+        var servers = await _distributedCache.GetRecordAsync<List<ServerInfoModel>>("ServerInfos");
+        if (servers is null)
+        {
+            await PopulateFromDatabase();
+            return;
+        }
+
+        var server = servers.First(x => x.Id == serverInfoModel.Id);
+        var index = servers.IndexOf(server);
+        servers[index] = serverInfoModel;
+        await _distributedCache.SetRecordAsync("ServerInfos", servers);
+    }
+
     private async Task<ServerInfoModel[]> PopulateFromDatabase()
     {
         var servers = await _decorated.GetAll();

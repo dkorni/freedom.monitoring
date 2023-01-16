@@ -1,14 +1,9 @@
-using System;
 using Freedom.ServerMonitor.Enums;
-using Microsoft.EntityFrameworkCore;
 
-namespace Freedom.ServerMonitor.Models;
+namespace Freedom.ServerMonitor.DTO;
 
-[Index(nameof(Name), nameof(IpAddress))]
-public class ServerInfoModel
+public class ServerInfoDto
 {
-    public Guid Id { get; set; }
-    
     public string Name { get; set; }
 
     public int PlayerCount { get; set; }
