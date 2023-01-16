@@ -11,8 +11,11 @@ using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddLogger();
 
 // Add services to the container.
 
@@ -40,4 +43,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+try
+{
+    app.Run();
+    Log.Information("Application started");
+}
+catch (Exception e)
+{
+    Log.Fatal(e, "Application failed to start");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
