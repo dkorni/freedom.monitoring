@@ -1,20 +1,13 @@
-using System.Configuration;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 using Freedom.ServerMonitor;
 using Freedom.ServerMonitor.Contracts;
 using Freedom.ServerMonitor.DataBase;
 using Freedom.ServerMonitor.Extensions;
 using Freedom.ServerMonitor.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Azure;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddKeyVault();
 builder.AddLogger();
 
 // Add services to the container.
@@ -25,7 +18,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataBaseContext>();
 builder.Services.AddScoped<IServerInfoRepository, DbRepository>();
-builder.AddKeyVault();
 builder.Services.AddMapper();
 builder.Services.AddSingleton<IKeyVaultManager, KeyVaultManager>();
 builder.Services.AddStackExchangeRedisCacheRepository();
@@ -46,8 +38,8 @@ app.MapControllers();
 
 try
 {
-    app.Run();
     Log.Information("Application started");
+    app.Run();
 }
 catch (Exception e)
 {
