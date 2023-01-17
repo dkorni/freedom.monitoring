@@ -1,8 +1,10 @@
 using Freedom.ServerMonitor.Domain.Enums;
+using Microsoft.EntityFrameworkCore;
 
-namespace Freedom.ServerMonitor.Domain.Models;
+namespace Freedom.ServerMonitor.DbRepository.Entities;
 
-public class ServerInfoModel
+[Index(nameof(Name), nameof(IpAddress))]
+public class ServerInfoEntity
 {
     public Guid Id { get; set; }
     

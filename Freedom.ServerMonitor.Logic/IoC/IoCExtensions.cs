@@ -3,6 +3,7 @@ using Azure.Security.KeyVault.Secrets;
 using Freedom.ServerMonitor.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -17,25 +18,27 @@ public static class IoCExtensions
         return builder;
     }
     
-    public static WebApplicationBuilder AddKeyVault(this WebApplicationBuilder builder)
+    public static IServiceCollection AddKeyVault(this IServiceCollection builder, bool isDevelopment, IConfiguration configuration)
     {
-        if (builder.Environment.IsDevelopment())
+        if (isDevelopment)
         {
-            var url = builder.Configuration["KeyVault:VaultUri"];
-            var tenantId = builder.Configuration["KeyVault:TenantId"];
-            var clientId = builder.Configuration["KeyVault:ClientId"];
-            var clientSecret = builder.Configuration["KeyVault:ClientSecret"];
+            var url = configuration["KeyVault:VaultUri"];
+            var tenantId = configuration["KeyVault:TenantId"];
+            var clientId = configuration["KeyVault:ClientId"];
+            var clientSecret = configuration["KeyVault:ClientSecret"];
 
             var credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
-            builder.Services.AddSingleton(new SecretClient(new Uri(url), credential));
+            builder.AddSingleton(new SecretClient(new Uri(url), credential));
         }
         else
         {
-            builder.Services.AddAzureClients(azureClientFactoryBuilder =>
+            builder.AddAzureClients(azureClientFactoryBuilder =>
             {
-                azureClientFactoryBuilder.AddSecretClient(builder.Configuration.GetSection("KeyVault"));
+                azureClientFactoryBuilder.AddSecretClient(configuration.GetSection("KeyVault"));
             });
         }
+
+        builder.AddSingleton<IKeyVaultManager, KeyVaultManager>();
         return builder;
     }
     

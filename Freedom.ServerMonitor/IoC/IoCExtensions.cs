@@ -15,13 +15,14 @@ public static class IoCExtensions
     public static WebApplicationBuilder AddHostDependencies(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
-        builder.AddKeyVault();
+        builder.Services.AddKeyVault(builder.Environment.IsDevelopment(), builder.Configuration);
         builder.AddLogger();
-        builder.Services.AddDbRepository();
         builder.Services.AddDbRepository();
         builder.Services.AddRedisCacheRepository();
         
-        builder.Services.AddScoped<IMonitorService, MonitorService>();
+        builder.Services.AddSingleton<IAuthService, AuthService>();
+        builder.Services.AddSingleton<IMonitorManagementService, MonitorManagementService>();
+        builder.Services.AddSingleton<IServerWatcher, ServerWatcher>();
 
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {

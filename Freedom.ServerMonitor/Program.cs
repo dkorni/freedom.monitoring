@@ -1,9 +1,11 @@
 using System.Text;
+using Freedom.ServerMonitor.Domain.Interfaces;
 using Freedom.ServerMonitor.Extensions;
+using Freedom.ServerMonitor.IoC;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.AddHostDependencies();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +25,11 @@ app.MapControllers();
 try
 {
     Log.Information("Application started");
+    using (var scope = app.Services.CreateScope())
+    {
+        scope.ServiceProvider.GetRequiredService<IServerWatcher>().Run();
+      
+    }
     app.Run();
 }
 catch (Exception e)

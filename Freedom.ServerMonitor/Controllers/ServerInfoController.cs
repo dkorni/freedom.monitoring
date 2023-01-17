@@ -12,10 +12,10 @@ namespace Freedom.ServerMonitor.Controllers;
 public class ServerInfoController : ControllerBase
 {
     private readonly IServerInfoRepository _serverInfoRepository;
-    private readonly IMonitorService _monitorService;
+    private readonly IMonitorManagementService _monitorService;
     private readonly IMapper _mapper;
 
-    public ServerInfoController(IMonitorService monitorService, IMapper mapper)
+    public ServerInfoController(IMonitorManagementService monitorService, IMapper mapper)
     {
         _monitorService = monitorService;
         _mapper = mapper;
@@ -26,13 +26,6 @@ public class ServerInfoController : ControllerBase
     {
        var models = await _monitorService.GetAll();
        return models.Select(x => _mapper.Map<ServerInfoDto>(x)).ToArray();
-    }
-
-    [HttpPost]
-    public Task<string> Create(ServerInfoDto serverInfo)
-    {
-        var model = _mapper.Map<ServerInfoModel>(serverInfo);
-        return _monitorService.CreateServiceAsync(model);
     }
 
     [HttpPut]

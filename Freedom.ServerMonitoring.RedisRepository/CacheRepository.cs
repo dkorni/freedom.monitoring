@@ -2,86 +2,64 @@ using Freedom.ServerMonitor.Domain.Interfaces;
 using Freedom.ServerMonitor.Domain.Models;
 using Freedom.ServerMonitoring.RedisRepository.Extensions;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
 
 namespace Freedom.ServerMonitoring.RedisRepository;
 
 public class CacheRepository : IServerInfoRepository
 {
     private readonly IDistributedCache _distributedCache;
+    private readonly IServerInfoRepository _decorated;
 
-    public CacheRepository(IDistributedCache distributedCache)
+    private readonly int _expireTime;
+
+    public CacheRepository(IDistributedCache distributedCache, IServerInfoRepository decorated, IConfiguration configuration)
     {
         _distributedCache = distributedCache;
-        _distributedCache.SetRecordAsync(":servers", new List<ServerInfoModel>()
-        {
-            new ServerInfoModel
-            {
-                Id = Guid.NewGuid(),
-                Name = "Server only for true cossaks",
-                PlayerCount = 24,
-                MaxPlayer = 100,
-                IpAddress = "128.0.0.1",
-                Port = 7777
-            },
-            new ServerInfoModel
-            {
-                Id = Guid.NewGuid(),
-                Name = "Bobber curva",
-                PlayerCount = 3,
-                MaxPlayer = 100,
-                IpAddress = "128.2.2.8",
-                Port = 1488
-            },
-            new ServerInfoModel
-            {
-                Id = Guid.NewGuid(),
-                Name = "First Europe server",
-                PlayerCount = 52,
-                MaxPlayer = 100,
-                IpAddress = "192.168.1.1",
-                Port = 7777
-            }
-        }).Wait();
-    }
-    
-    public async Task<ServerInfoModel[]> GetAll()
-    {
-        var servers = await _distributedCache.GetRecordAsync<ServerInfoModel[]>(":servers");
-        return servers;
+        _decorated = decorated;
+        _expireTime = int.Parse(configuration["ExpireTime"]);
     }
 
-    public async Task<ServerInfoModel> Get(string name, string address, int port)
-    {
-        var servers = await _distributedCache.GetRecordAsync<ServerInfoModel[]>(":servers");
-        return servers.FirstOrDefault(x=>x.Name == name && x.IpAddress == address && x.Port == port);
-    }
+    public Task<ServerInfoModel[]> GetAll() => _decorated.GetAll();
+
+    public Task<ServerInfoModel[]> GetAllActive() => GetAllInternal();
+
+    public Task<ServerInfoModel> Get(Guid id) => _decorated.Get(id);
 
     public async Task Create(ServerInfoModel serverInfo)
     {
-        var servers = await _distributedCache.GetRecordAsync<List<ServerInfoModel>>(":servers");
-        if (servers is null)
-        {
-            servers = new List<ServerInfoModel>();
-        }
-        
-        serverInfo.CreatedAt = DateTime.UtcNow;
-        serverInfo.UpdatedAt = DateTime.UtcNow;
-        servers.Add(serverInfo);
-        await _distributedCache.SetRecordAsync(":servers", servers);
+       await _decorated.Create(serverInfo);
+       await PopulateFromDatabase();
     }
 
     public async Task Update(ServerInfoModel serverInfoModel)
     {
-        var servers = await _distributedCache.GetRecordAsync<List<ServerInfoModel>>(":servers");
-        var serverInfo = servers.FirstOrDefault(x =>
-            x.Name == serverInfoModel.Name && x.IpAddress == serverInfoModel.IpAddress &&
-            x.Port == serverInfoModel.Port);
-        serverInfo.UpdatedAt = DateTime.UtcNow;
-        await _distributedCache.SetRecordAsync(":servers", servers);
+        await _decorated.Update(serverInfoModel); 
+        await PopulateFromDatabase();
+    } 
+
+    public async Task UpdateBulk(ServerInfoModel[] servers)
+    {
+        await _decorated.UpdateBulk(servers);
+        await PopulateFromDatabase();
     }
 
-    public Task UpdateBulk(ServerInfoModel[] servers)
+    private async Task<ServerInfoModel[]> GetAllInternal()
     {
-        return _distributedCache.SetRecordAsync(":servers", servers);
+        var servers = await _distributedCache.GetRecordAsync<ServerInfoModel[]>(":servers");
+
+        if (servers is null || servers.Length == 0)
+        {
+            return await PopulateFromDatabase();
+        }
+
+        return servers;
+    }
+    
+    private async Task<ServerInfoModel[]> PopulateFromDatabase()
+    {
+        var servers = await _decorated.GetAllActive();
+        await _distributedCache.SetRecordAsync(":servers", servers, TimeSpan.FromSeconds(_expireTime));
+        return servers;
     }
 }

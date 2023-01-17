@@ -8,7 +8,7 @@ public static class IoCExtensions
     public static IServiceCollection AddDbRepository(this IServiceCollection builder)
     {
         builder.AddDbContext<DataBaseContext>();
-        builder.AddScoped<IServerInfoRepository, DbRepository>();
+        builder.AddSingleton<IServerInfoRepository, DbRepository>();
         return builder;
     }
 }

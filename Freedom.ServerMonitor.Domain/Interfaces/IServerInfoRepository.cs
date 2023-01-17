@@ -5,7 +5,8 @@ namespace Freedom.ServerMonitor.Domain.Interfaces;
 public interface IServerInfoRepository
 {
     Task<ServerInfoModel[]> GetAll();
-    Task<ServerInfoModel> Get(string name, string address, int port);
+    Task<ServerInfoModel[]> GetAllActive();
+    Task<ServerInfoModel> Get(Guid id);
 
     Task Create(ServerInfoModel serverInfo);
 

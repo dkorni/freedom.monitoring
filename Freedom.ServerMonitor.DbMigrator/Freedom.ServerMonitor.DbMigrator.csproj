@@ -4,18 +4,15 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-      <UserSecretsId>aed02dcd-aeb5-4c8e-a19d-9dee4cbe9aaf</UserSecretsId>
+      <UserSecretsId>42d489a0-d549-4d34-8ba5-7f2fd726a166</UserSecretsId>
   </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Freedom.ServerMonitoring.RedisRepository\Freedom.ServerMonitoring.RedisRepository.csproj" />
       <ProjectReference Include="..\Freedom.ServerMonitor.DbRepository\Freedom.ServerMonitor.DbRepository.csproj" />
-      <ProjectReference Include="..\Freedom.ServerMonitor.Domain\Freedom.ServerMonitor.Domain.csproj" />
       <ProjectReference Include="..\Freedom.ServerMonitor.Logic\Freedom.ServerMonitor.Logic.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+     
+    </ItemGroup>
 </Project>
