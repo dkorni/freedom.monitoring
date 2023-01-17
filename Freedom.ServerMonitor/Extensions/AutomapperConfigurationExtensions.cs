@@ -1,6 +1,6 @@
 using AutoMapper;
+using Freedom.ServerMonitor.Domain.Models;
 using Freedom.ServerMonitor.DTO;
-using Freedom.ServerMonitor.Models;
 
 namespace Freedom.ServerMonitor.Extensions;
 

@@ -1,0 +1,12 @@
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\bin\Debug\net6.0\Freedom.ServerMonitor.Domain.deps.json
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\bin\Debug\net6.0\Freedom.ServerMonitor.Domain.dll
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\bin\Debug\net6.0\Freedom.ServerMonitor.Domain.pdb
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.csproj.AssemblyReference.cache
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.AssemblyInfoInputs.cache
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.AssemblyInfo.cs
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.dll
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\refint\Freedom.ServerMonitor.Domain.dll
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\Freedom.ServerMonitor.Domain.pdb
+D:\Projects\FreedomMonitoring\Freedom.ServerMonitor.Domain\obj\Debug\net6.0\ref\Freedom.ServerMonitor.Domain.dll

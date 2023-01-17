@@ -2,6 +2,20 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freedom.ServerMonitor", "Freedom.ServerMonitor\Freedom.ServerMonitor.csproj", "{9A360178-E27D-4BF2-B481-6DD43348BDC4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6469B9D0-765E-4BA0-AC72-5BBC1F2CA755}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freedom.ServerMonitor.Domain", "Freedom.ServerMonitor.Domain\Freedom.ServerMonitor.Domain.csproj", "{D674385A-0836-421F-8EF6-54BE19A6F6D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freedom.ServerMonitor.Logic", "Freedom.ServerMonitor.Logic\Freedom.ServerMonitor.Logic.csproj", "{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{F0B83807-18BD-4693-884D-9C880D28D4BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freedom.ServerMonitor.DbRepository", "Freedom.ServerMonitor.DbRepository\Freedom.ServerMonitor.DbRepository.csproj", "{39871740-39F3-464C-AA35-DA7C5687ED2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freedom.ServerMonitoring.RedisRepository", "Freedom.ServerMonitoring.RedisRepository\Freedom.ServerMonitoring.RedisRepository.csproj", "{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{29A2C70B-B92D-4510-8267-A2B9346A9E43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +26,28 @@ Global
 		{9A360178-E27D-4BF2-B481-6DD43348BDC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A360178-E27D-4BF2-B481-6DD43348BDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A360178-E27D-4BF2-B481-6DD43348BDC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D674385A-0836-421F-8EF6-54BE19A6F6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D674385A-0836-421F-8EF6-54BE19A6F6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D674385A-0836-421F-8EF6-54BE19A6F6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D674385A-0836-421F-8EF6-54BE19A6F6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39871740-39F3-464C-AA35-DA7C5687ED2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39871740-39F3-464C-AA35-DA7C5687ED2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39871740-39F3-464C-AA35-DA7C5687ED2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39871740-39F3-464C-AA35-DA7C5687ED2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D674385A-0836-421F-8EF6-54BE19A6F6D4} = {6469B9D0-765E-4BA0-AC72-5BBC1F2CA755}
+		{9AC4C6DE-3EC3-4F18-A975-B1E12C7030C7} = {6469B9D0-765E-4BA0-AC72-5BBC1F2CA755}
+		{39871740-39F3-464C-AA35-DA7C5687ED2C} = {F0B83807-18BD-4693-884D-9C880D28D4BC}
+		{FAA2DE7E-8E02-49D0-BD7F-0978A89FF5CD} = {F0B83807-18BD-4693-884D-9C880D28D4BC}
+		{9A360178-E27D-4BF2-B481-6DD43348BDC4} = {29A2C70B-B92D-4510-8267-A2B9346A9E43}
 	EndGlobalSection
 EndGlobal

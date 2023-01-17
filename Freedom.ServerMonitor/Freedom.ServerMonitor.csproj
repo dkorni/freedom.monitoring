@@ -8,26 +8,18 @@
   </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoMapper" Version="12.0.0" />
-        <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
-        <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.5.0-beta.1" />
-        <PackageReference Include="EntityFramework" Version="6.4.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
-        <PackageReference Include="Microsoft.Extensions.Azure" Version="1.6.0" />
-        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.13" />
-        <PackageReference Include="Scrutor" Version="4.2.0" />
-        <PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00293" />
-        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0-dev-00791" />
-        <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
-        <PackageReference Include="Serilog.Enrichers.Thread" Version="3.2.0-dev-00752" />
-        <PackageReference Include="Serilog.Settings.Configuration" Version="3.5.0-dev-00370" />
-        <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.3-dev-00260" />
-        <PackageReference Include="StackExchange.Redis" Version="2.6.90" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Freedom.ServerMonitoring.RedisRepository\Freedom.ServerMonitoring.RedisRepository.csproj" />
+      <ProjectReference Include="..\Freedom.ServerMonitor.DbRepository\Freedom.ServerMonitor.DbRepository.csproj" />
+      <ProjectReference Include="..\Freedom.ServerMonitor.Domain\Freedom.ServerMonitor.Domain.csproj" />
+      <ProjectReference Include="..\Freedom.ServerMonitor.Logic\Freedom.ServerMonitor.Logic.csproj" />
     </ItemGroup>
 
 </Project>
